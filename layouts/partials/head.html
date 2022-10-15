@@ -1,0 +1,61 @@
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Enable Google Analytics -->
+    {{ if .Site.Params.googleAnalytics }}
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{ .Site.Params.googleAnalytics }}"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', '{{ .Site.Params.googleAnalytics }}');
+    </script>
+    {{ end }}
+
+   <!-- Enable Google Fonts -->
+<!--
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;600;700;800&family=Frank+Ruhl+Libre:wght@200;300;400;500;600&family=Encode+Sans+Semi+Condensed:wght@400&display=swap" rel="stylesheet">
+-->
+
+    <!-- {{ $options := (dict "targetPath" "style.css" "outputStyle" "compressed" "enableSourceMap" (not hugo.IsProduction) "includePaths" (slice "node_modules/myscss")) }} -->
+
+
+
+
+
+    {{/* Load Bootstrap SCSS. */}}
+    {{ $options := dict "enableSourceMap" (not hugo.IsProduction) "outputStyle" "compressed" "includePaths" (slice  "assets/css" "node_modules/bootstrap/scss") }}
+    {{ $styles := resources.Get "css/styles.scss" }}
+    {{ $styles = $styles | resources.ToCSS $options }}
+    {{ if hugo.IsProduction }}
+    {{ $styles = $styles | fingerprint }}
+    {{ end }}
+    <link href="{{ $styles.RelPermalink }}" rel="stylesheet" />
+
+
+    {{/* Load Bootstrap JS. */}}
+    {{ $js := resources.Get "bootstrap/dist/js/bootstrap.bundle.min.js" }}
+    {{ $params := dict }}
+    {{ $sourceMap := cond hugo.IsProduction "" "inline" }}
+    {{ $opts := dict "sourceMap" $sourceMap "minify" hugo.IsProduction "target" "es2018" "params" $params }}
+    {{ $js = $js | js.Build $opts }}
+    {{ if hugo.IsProduction }}
+    {{ $js = $js | fingerprint }}
+    {{ end }}
+    <script src="{{ $js.RelPermalink }}" {{ if hugo.IsProduction }}integrity="{{ $js.Data.Integrity }}"{{ end }} defer></script>
+
+
+    <!-- FontAwesome 6 (and other) CSS -->
+    {{ $faCss := resources.Get "css/fontawesome-free/all.min.css" }}
+    <link href="{{ $faCss.RelPermalink }}" rel="stylesheet" />
+    {{ $darkCss := resources.Get "css/dark.css" }}
+    <link disabled id="dark-mode-theme" href="{{ $darkCss.RelPermalink }}" rel="stylesheet" />
+
+    <!-- Site Title -->
+    {{ $title := print .Site.Title " | " .Title }}
+    {{ if .IsHome }}{{ $title = .Site.Title }}{{ end }}
+    <title>{{ $title }}</title>
+    <meta name="description" content="{{ if .IsPage }}{{ .Summary }}{{ else }}{{ if .IsHome }}{{ .Site.Params.description }}{{ else }}{{ end }}{{ end }}">
+</head>

@@ -1,0 +1,95 @@
+baseURL = 'https://asig.github.io/'
+languageCode = 'en-us'
+title = "Asig's open source"
+
+copyright = "© Andreas Signer "
+
+
+[module]
+
+#    [[module.mounts]]
+#        source = 'node_modules/bootstrap/scss'
+#        target = 'assets/scss/bootstrap'
+
+    [[module.mounts]]
+        source = 'node_modules/bootstrap/js'
+        target = 'assets/js/bootstrap'
+
+    [[module.mounts]]
+        source = 'node_modules/bootstrap/dist'
+        target = 'assets/bootstrap/dist'
+
+    [[module.mounts]]
+        source = "assets"
+        target = "assets"
+
+    [[module.mounts]]
+        source = 'layouts'
+        target = 'layouts'
+
+    [[module.mounts]]
+        source = 'data'
+        target = 'data'
+
+    [[module.mounts]]
+        source = 'i18n'
+        target = 'i18n'
+
+    [[module.mounts]]
+        source = 'archetypes'
+        target = 'archetypes'
+
+[params]
+  name = "asig.github.io"
+  description = "Stuff I want Google to index."
+  initials = "asig.github.io"
+  googleAnalytics = ""
+
+#  [[params.social]]
+#    name = "Twitter"
+#    link = "#"
+#    icon = "fab fa-twitter"
+
+  [[params.social]]
+    name = "Github"
+    link = "asig.github.com"
+    icon = "fab fa-github"
+
+  [[params.social]]
+    name = "Medium"
+    link = "#"
+    icon = "fab fa-medium-m"
+
+  [[params.social]]
+    name = "LinkedIn"
+    link = "#"
+    icon = "fab fa-linkedin-in"
+
+
+[menu]
+#  [[menu.main]]
+#    name = "Foo"
+#    url = "/foo/"
+#    weight = 1
+#  [[menu.main]]
+#    name = "About"
+#    url = "/about/"
+#    weight = 2
+
+
+
+[markup]
+  defaultMarkdownHandler = 'goldmark'
+  [markup.goldmark.renderer]
+    unsafe = true
+  [markup.goldmark.extensions]
+    definitionList = true
+    footnote = true
+    linkify = true
+    strikethrough = true
+    table = true
+    taskList = true
+    typographer = true
+  [markup.highlight]
+    # Choose from https://xyproto.github.io/splash/docs/all.html
+    style = 'github'
