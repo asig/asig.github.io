@@ -42,8 +42,7 @@ copyright = "© Andreas Signer "
 [params]
   name = "asig.github.io"
   description = "A selection of my stuff on github."
-  initials = "asig.github.io"
-  googleAnalytics = ""
+  googleAnalytics = "G-6CPDWTEYT3"
 
 #  [[params.social]]
 #    name = "Twitter"

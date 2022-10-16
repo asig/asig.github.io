@@ -3,20 +3,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Enable Google Analytics -->
     {{ if .Site.Params.googleAnalytics }}
-    <script async src="https://www.googletagmanager.com/gtag/js?id={{ .Site.Params.googleAnalytics }}"></script>
-    <script>
+        <script async src="https://www.googletagmanager.com/gtag/js?id={{ .Site.Params.googleAnalytics }}"></script>
+        <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
+        function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
         gtag('config', '{{ .Site.Params.googleAnalytics }}');
-    </script>
+        </script>
     {{ end }}
 
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-
 
     {{/* Load Bootstrap SCSS. */}}
     {{ $options := dict "enableSourceMap" (not hugo.IsProduction) "outputStyle" "compressed" "includePaths" (slice  "assets/css" "node_modules/bootstrap/scss") }}
@@ -26,7 +25,6 @@
     {{ $styles = $styles | fingerprint }}
     {{ end }}
     <link href="{{ $styles.RelPermalink }}" rel="stylesheet" />
-
 
     {{/* Load Bootstrap JS. */}}
     {{ $js := resources.Get "bootstrap/dist/js/bootstrap.bundle.min.js" }}
@@ -38,7 +36,6 @@
     {{ $js = $js | fingerprint }}
     {{ end }}
     <script src="{{ $js.RelPermalink }}" {{ if hugo.IsProduction }}integrity="{{ $js.Data.Integrity }}"{{ end }} defer></script>
-
 
     <!-- FontAwesome 6 (and other) CSS -->
     {{ $faCss := resources.Get "css/fontawesome-free/all.min.css" }}
