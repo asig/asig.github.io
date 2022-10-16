@@ -41,7 +41,7 @@ copyright = "© Andreas Signer "
 
 [params]
   name = "asig.github.io"
-  description = "Stuff I want Google to index."
+  description = "A selection of my stuff on github."
   initials = "asig.github.io"
   googleAnalytics = ""
 
@@ -49,21 +49,21 @@ copyright = "© Andreas Signer "
 #    name = "Twitter"
 #    link = "#"
 #    icon = "fab fa-twitter"
-
-  [[params.social]]
-    name = "Github"
-    link = "asig.github.com"
-    icon = "fab fa-github"
-
-  [[params.social]]
-    name = "Medium"
-    link = "#"
-    icon = "fab fa-medium-m"
-
-  [[params.social]]
-    name = "LinkedIn"
-    link = "#"
-    icon = "fab fa-linkedin-in"
+#
+#  [[params.social]]
+#    name = "Github"
+#    link = "https://github.com/asig"
+#    icon = "fab fa-github"
+#
+#  [[params.social]]
+#    name = "Medium"
+#    link = "#"
+#    icon = "fab fa-medium-m"
+#
+#  [[params.social]]
+#    name = "LinkedIn"
+#    link = "#"
+#    icon = "fab fa-linkedin-in"
 
 
 [menu]
