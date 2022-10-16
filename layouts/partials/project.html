@@ -1,7 +1,7 @@
-<div>
-    foobar
-    {{ .Title }}
-    {{ .Params.whatever }}
-    {{ .Content }}
-
+<div class="card project">
+    <div class="card-body">
+        <h2 class="card-title">{{ .Title }}</h2>
+        {{ .Content }}
+        <a href="{{ .Params.Link }}" class="card-link">github</a>
+    </div>
 </div>
