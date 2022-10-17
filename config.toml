@@ -4,7 +4,6 @@ title = "Asig's open source"
 
 copyright = "© Andreas Signer "
 
-disableKinds=["page","taxonomy"]
 ignoreErrors = ["error-disable-taxonomy"]
 
 [module]
